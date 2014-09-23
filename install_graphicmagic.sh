@@ -1,16 +1,20 @@
 #!/bin/bash
 
-VER=0.10.32
+GM_MAIN_VER=1.3
+GM_VER=1.3.18
 
-rm -rf tmp
 mkdir -p tmp
 cd tmp
-test -d node-v$VER || curl http://nodejs.org/dist/v$VER/node-v$VER.tar.gz | tar xz
-cd node-v$VER
 
-test -x out/Release/node || (./configure; make)
-make install
+#curl http://www.bzip.org/1.0.6/bzip2-1.0.6.tar.gz | tar xz
 
+curl ftp://ftp.graphicsmagick.org/pub/GraphicsMagick/$GM_MAIN_VER/GraphicsMagick-$GM_VER.tar.xz | tar xz
 
+cd GraphicsMagick-$GM_VER
+
+./configure --enable-shared
+
+make
+sudo make install
 
 

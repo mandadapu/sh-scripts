@@ -1,16 +1,14 @@
 #!/bin/bash
+MONGODB_VER=2.6.4
 
-VER=0.10.32
+test -d mongodb-osx-x86_64_$MONGODB_VER || curl -O http://downloads.mongodb.org/osx/mongodb-osx-x86_64-$MONGODB_VER.tgz | tar xz
 
-rm -rf tmp
-mkdir -p tmp
-cd tmp
-test -d node-v$VER || curl http://nodejs.org/dist/v$VER/node-v$VER.tar.gz | tar xz
-cd node-v$VER
+mkdir -p mongodb
+cp -R -n mongodb-osx-x86_$MONGODB_VER/ mongodb_$MONGODB_VER
 
-test -x out/Release/node || (./configure; make)
-make install
+echo 'export PATH=mongodb_$MONGODB_VER/bin:$PATH'
 
+mkdir -p /data/db && chown mongodb /data/db
 
 
 
