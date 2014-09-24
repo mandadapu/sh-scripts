@@ -1,6 +1,6 @@
 #!/bin/sh
 VER=0.10.32
-cd tmp/node-v$VER
+cd tmp/node/node-v$VER
 ./configure --prefix=$HOME/local/node
 make uninstall
 

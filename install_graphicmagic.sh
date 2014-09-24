@@ -11,14 +11,15 @@ cd tmp/gm/jpeg
 
 ##curl http://www.bzip.org/1.0.6/bzip2-1.0.6.tar.gz | tar xz
 
-#curl -O http://www.ijg.org/files/jpegsrc.v$JPEG_VER.tar.gz
-#tar -zxvf jpegsrc.v$JPEG_VER.tar.gz
-#cd jpeg-$JPEG_VER/
-#./configure
-#make
-#make install
+echo 'Installing libjpeg port........'
+curl -O http://www.ijg.org/files/jpegsrc.v$JPEG_VER.tar.gz
+tar -zxvf jpegsrc.v$JPEG_VER.tar.gz
+cd jpeg-$JPEG_VER/
+./configure
+make
+make install
 
-
+echo 'Installing libpng port........'
 curl -O ftp://ftp.simplesystems.org/pub/png/src/libpng15/libpng-$PNG_VER.tar.gz
 tar -zxvf libpng-$PNG_VER.tar.gz
 cd libpng-$PNG_VER/
@@ -26,15 +27,13 @@ cd libpng-$PNG_VER/
 make
 make install
 
-#curl ftp://ftp.graphicsmagick.org/pub/GraphicsMagick/$GM_MAIN_VER/GraphicsMagick-$GM_VER.tar.xz | tar xz
 
-#cd GraphicsMagick-$GM_VER
-#./configure --enable-shared
+echo 'Installing graphicmagic........'
+curl ftp://ftp.graphicsmagick.org/pub/GraphicsMagick/$GM_MAIN_VER/GraphicsMagick-$GM_VER.tar.xz | tar xz
+cd GraphicsMagick-$GM_VER
+./configure --enable-shared
+make
+make install
 
-#make
-#make install
-
-
-#sudo make install
 
 
